@@ -90,8 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ............function to let user sign in with the created account...............
 const signIn = document.getElementById("submitSignIn");
-signIn.addEventListener("click", (event) => {
-  event.preventDefault();
+if (signIn) {
+  signIn.addEventListener("click", (event) => {
+    event.preventDefault();
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -113,4 +114,4 @@ signIn.addEventListener("click", (event) => {
         showMessage("Account doesnot Exist.!", "signInMessage");
       }
     });
-});
+}

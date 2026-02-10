@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="website icon" type="png" href="Images/Logos/FC-icon.png">
     <script src="https://kit.fontawesome.com/969f6c4469.js" crossorigin="anonymous"></script>
+    <script src="profile-menu.js" defer></script>
 </head>
 <body>
 <!-----------------------------------Navigation bar-------------------------------------------------->
@@ -33,15 +34,101 @@
         <a href="Aboutus.html" target="_blank" class="about navbar-link"> About<br> </a>
         <!------------------------------------------------>
         <div class="user-profile">
-            <div id="message" title="Your Profile"> 
-                <h2 onclick="displayProfileFeatures()"> Hi, <span class="display-userName"></span><i class="fa-solid fa-chevron-down" id="chevronDown"></i> <br> </h2>
+            <div id="message" title="Your Profile" class="profile-trigger"> 
+                <h2> Hi, <span class="display-userName"></span><i class="fa-solid fa-chevron-down" id="chevronDown"></i> </h2>
             </div>
             <div class="profile-features" id="profileFeatures">
-                <button class="closebutton" onclick="hideProfileFeatures()"><i class="fa-solid fa-x"></i></button>
-                <a href="Account.html"><i class="fa-regular fa-user"></i> Account </a><br>
-                <a href=""><i class="fa-brands fa-bilibili"></i> Billing</a><br><hr>
-                <button class="logout" id="signOutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout  </button>  
-            </div> </div>
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <p class="profile-name"><span class="display-userName"></span></p>
+                        <p class="profile-email">Fifi's Member</p>
+                    </div>
+                    <button class="closebutton" onclick="hideProfileFeatures()"><i class="fa-solid fa-x"></i></button>
+                </div>
+                
+                <div class="profile-menu-divider"></div>
+                
+                <div class="profile-menu-section">
+                    <a href="Account.html" class="profile-menu-item" onclick="hideProfileFeatures()">
+                        <i class="fa-regular fa-user"></i>
+                        <span>My Profile</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="Order%20status.html" class="profile-menu-item" onclick="hideProfileFeatures()">
+                        <i class="fa-regular fa-clipboard"></i>
+                        <span>Order History</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Wishlist</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>Notifications</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="profile-menu-divider"></div>
+                
+                <div class="profile-menu-section">
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <span>Billing & Payments</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Addresses</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>Settings</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="profile-menu-divider"></div>
+                
+                <div class="profile-menu-section">
+                    <a href="Aboutus.html" class="profile-menu-item" onclick="hideProfileFeatures()">
+                        <i class="fa-circle-info fa-regular"></i>
+                        <span>About Us</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="Terms$Policies.html" class="profile-menu-item" onclick="hideProfileFeatures()">
+                        <i class="fa-regular fa-file-lines"></i>
+                        <span>Terms & Policies</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    
+                    <a href="" class="profile-menu-item" onclick="hideProfileFeatures(); event.preventDefault();">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Help & Support</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="profile-menu-divider"></div>
+                
+                <button class="logout-btn" id="signOutBtn" onclick="hideProfileFeatures()">
+                    <i class="fa-solid fa-right-from-bracket"></i> 
+                    <span>Logout</span>
+                </button>  
+            </div> 
+        </div>
     <!------------------------------------->
     <a href="Account.html" class="user">  
     <i class="fa-regular fa-user" title="Your Account" onclick="openPage()"></i> </a>

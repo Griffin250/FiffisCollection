@@ -32,13 +32,13 @@
  
 //................... Function to show user profile
 const showUserProfile = (user) => {
-  message.style.display = "block";
-  signOutButton.style.display = "block";
-  loginBtn.style.display = "none";
-  signInButton.style.display = "block";
-  accountLink.style.display = "none";    
-  userName.innerHTML = user.display-Name;
-  userEmail.innerHTML = user.email; 
+  if (message) message.style.display = "block";
+  if (signOutButton) signOutButton.style.display = "block";
+  if (loginBtn) loginBtn.style.display = "none";
+  if (signInButton) signInButton.style.display = "block";
+  if (accountLink) accountLink.style.display = "none";    
+  if (userName) userName.innerHTML = user.displayName || user.email;
+  if (userEmail) userEmail.innerHTML = user.email; 
 };
 
 //....................... Function to hide user profile

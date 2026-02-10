@@ -44,58 +44,78 @@ function hideProfileFeatures() {
   var signupForm = document.getElementById("signupForm");
   var createAccount = document.getElementById("createAccount");
   var loginButton1 = document.getElementById("loginButton1");
-  var loginButton2 =document.getElementById("loginButton2");
+  var loginButton2 = document.getElementById("loginButton2");
   
-  createAccount.onclick = function(){
-      loginForm.style.transform = "translateY(-120%)";
-      signupForm.style.transform="translateY(-111%)";
+  if (createAccount) {
+    createAccount.onclick = function(){
+      if (loginForm) loginForm.style.transform = "translateY(-120%)";
+      if (signupForm) signupForm.style.transform = "translateY(-111%)";
+    }
   }
-  loginButton2.onclick = function(){
-      signupForm.style.transform="translateY(120%)";
-      loginForm.style.transform="translateY(0%)";
+  
+  if (loginButton2) {
+    loginButton2.onclick = function(){
+      if (signupForm) signupForm.style.transform = "translateY(120%)";
+      if (loginForm) loginForm.style.transform = "translateY(0%)";
+    }
   }
   
   /*.....................................................................Shopping Cart..................................*/
   var Cart = document.getElementById("shoppingCart");
   var closeButton = document.getElementById("shoppingCart");
+  var shoppingCart = document.getElementById("shoppingCart");
+  var MenuLinks = document.getElementById("MenuLinks");
 
   function openCart(){
-    shoppingCart.style.transform = "translateY(0%)";
-    shoppingCart.style.display = "block"
-    MenuLinks.style.display = "none";
+    if (shoppingCart) {
+      shoppingCart.style.transform = "translateY(0%)";
+      shoppingCart.style.display = "block";
+    }
+    if (MenuLinks) MenuLinks.style.display = "none";
   }
+  
   function closeCart(){
-    shoppingCart.style.transform = "translateY(-200%)";
-    shoppingCart.style.display = "none"
+    if (shoppingCart) {
+      shoppingCart.style.transform = "translateY(-200%)";
+      shoppingCart.style.display = "none";
+    }
   }
   /*...............................show password........................................*/
 
-const password = document.getElementById ("password");
+const password = document.getElementById("password");
 const checkbox = document.getElementById("checkbox");
-checkbox.onchange = function (e) {
-password. type = checkbox.checked ? "text" : "password";
-};
+if (checkbox && password) {
+  checkbox.onchange = function (e) {
+    password.type = checkbox.checked ? "text" : "password";
+  };
+}
 
-const password2 = document.getElementById ("password2");
+const password2 = document.getElementById("password2");
 const checkbox2 = document.getElementById("checkbox2");
-checkbox2.onchange = function (e) {
-password2. type = checkbox2.checked ? "text" : "password";
-};
+if (checkbox2 && password2) {
+  checkbox2.onchange = function (e) {
+    password2.type = checkbox2.checked ? "text" : "password";
+  };
+}
 
  /*...............................Menu........................................*/
  var Menu = document.getElementById("MenuLinks");
+ var Main = document.getElementById("main");
+ var siteInfo = document.getElementById("site-info");
+ var Contents = document.getElementById("Contents");
+ 
  function openMenu(){
-  MenuLinks.style.display = "block";
-  Main.style.display = "none";
-  siteInfo.style.display = "none";
-  Contents.style.display = "none";
-  shoppingCart.style.display = "none";
+  if (MenuLinks) MenuLinks.style.display = "block";
+  if (Main) Main.style.display = "none";
+  if (siteInfo) siteInfo.style.display = "none";
+  if (Contents) Contents.style.display = "none";
+  if (shoppingCart) shoppingCart.style.display = "none";
  }
- var closeButton = document.getElementById("MenuLinks");
+ 
  function closeMenu(){
-  MenuLinks.style.display = "none";
-  Main.style.display = "block";
-  siteInfo.style.display = "block";
+  if (MenuLinks) MenuLinks.style.display = "none";
+  if (Main) Main.style.display = "block";
+  if (siteInfo) siteInfo.style.display = "block";
  }
 
 
@@ -107,8 +127,12 @@ function displayImage(imageNumber) {
 }
 
 //....code to manupulate company logos.......................
-var copy = document.querySelector(".logo-slide").cloneNode(true);
-document.querySelector(".company-logos").appendChild(copy);
+var logoSlide = document.querySelector(".logo-slide");
+var companyLogos = document.querySelector(".company-logos");
+if (logoSlide && companyLogos) {
+  var copy = logoSlide.cloneNode(true);
+  companyLogos.appendChild(copy);
+}
 
 //...................checkout proccess.....................................................................
 function checkout(){
@@ -116,16 +140,22 @@ function checkout(){
   shoppingCart.style.display = "none";
 }
 /*--..................checkout process with stripe gateway.................
-var stripe = stripe( //....stripe account required...!!!
-  "pk_test_51P8fyHRogxYobEmx9IGf1WxTmcxBrI5mFf2CDNo1Z65SHiYuqWxKiUFBtuCQHVE61cIbBY07iE8KNem736BYOx5Q00Oz3Ctpfr"
-);
-document.getElementById("checkoutButton").addEventListener("click", function(){
-  stripe.redirectToCheckout({
-    lineItems: [
-      {
-price: " https://buy.stripe.com/test_bIYaI325CbPXbtK4gg"
-      }
-    ]
-  })
+// Import Stripe key from environment variables
+// import { stripePublicKey } from './firebase-config.js';
+
+// var stripe = Stripe(stripePublicKey); // Using env variable instead of hardcoded key
+
+const checkoutButton = document.getElementById("checkoutButton");
+if (checkoutButton) {
+  checkoutButton.addEventListener("click", function(){
+    // stripe.redirectToCheckout({
+    //   lineItems: [
+    //     {
+    //       price: "https://buy.stripe.com/test_bIYaI325CbPXbtK4gg" // Update with your actual Stripe price ID
+    //     }
+    //   ]
+    // })
+  });
+}
 });....*/
 

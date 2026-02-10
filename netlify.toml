@@ -1,0 +1,48 @@
+[build]
+  # Command to build your project
+  command = "npm run build"
+  # Directory to deploy
+  publish = "dist"
+  # Environment variables for build
+  environment = { NODE_VERSION = "18" }
+
+[dev]
+  # Local dev settings
+  command = "npm run dev"
+  port = 3000
+
+# Environment variables for production
+[context.production.environment]
+  VITE_FIREBASE_API_KEY_AUTH = ""
+  VITE_FIREBASE_AUTH_DOMAIN_AUTH = ""
+  VITE_FIREBASE_DATABASE_URL_AUTH = ""
+  VITE_FIREBASE_PROJECT_ID_AUTH = ""
+  VITE_FIREBASE_STORAGE_BUCKET_AUTH = ""
+  VITE_FIREBASE_MESSAGING_SENDER_ID_AUTH = ""
+  VITE_FIREBASE_APP_ID_AUTH = ""
+  VITE_FIREBASE_API_KEY_DB = ""
+  VITE_FIREBASE_AUTH_DOMAIN_DB = ""
+  VITE_FIREBASE_DATABASE_URL_DB = ""
+  VITE_FIREBASE_PROJECT_ID_DB = ""
+  VITE_FIREBASE_STORAGE_BUCKET_DB = ""
+  VITE_FIREBASE_MESSAGING_SENDER_ID_DB = ""
+  VITE_FIREBASE_APP_ID_DB = ""
+  VITE_STRIPE_PUBLIC_KEY = ""
+  VITE_STRIPE_SECRET_KEY = ""
+  VITE_GOOGLE_CLIENT_ID = ""
+  VITE_APP_ENV = "production"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
