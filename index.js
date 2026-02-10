@@ -86,7 +86,7 @@ const password = document.getElementById("password");
 const checkbox = document.getElementById("checkbox");
 if (checkbox && password) {
   checkbox.onchange = function (e) {
-    password.type = checkbox.checked ? "text" : "password";
+    if (password) password.type = checkbox.checked ? "text" : "password";
   };
 }
 
@@ -94,7 +94,7 @@ const password2 = document.getElementById("password2");
 const checkbox2 = document.getElementById("checkbox2");
 if (checkbox2 && password2) {
   checkbox2.onchange = function (e) {
-    password2.type = checkbox2.checked ? "text" : "password";
+    if (password2) password2.type = checkbox2.checked ? "text" : "password";
   };
 }
 

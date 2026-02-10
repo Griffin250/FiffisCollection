@@ -43,13 +43,13 @@ const showUserProfile = (user) => {
 
 //....................... Function to hide user profile
 const hideUserProfile = () => {
-  signOutButton.style.display = "none";
-  message.style.display = "none";
-  loginBtn.style.display = "block";
-  accountLink.style.display = "block";
-  signInButton.style.display = "block";
-  userName.innerHTML = "user.display-Name";
-  userEmail.innerHTML = "user.email";
+  if (signOutButton) signOutButton.style.display = "none";
+  if (message) message.style.display = "none";
+  if (loginBtn) loginBtn.style.display = "block";
+  if (accountLink) accountLink.style.display = "block";
+  if (signInButton) signInButton.style.display = "block";
+  if (userName) userName.innerHTML = "user.display-Name";
+  if (userEmail) userEmail.innerHTML = "user.email";
 };
 
 
@@ -66,9 +66,11 @@ loginBtn.style.display = "none";
 // Retrieve user data from localStorage on page load
  window.addEventListener('load', () => {
   let user = JSON.parse(localStorage.getItem("user"));
-  document.querySelectorAll(".display-userName").forEach((elem) => {
-    elem.innerHTML = user.displayName;
-  });
+  if (user && user.displayName) {
+    document.querySelectorAll(".display-userName").forEach((elem) => {
+      if (elem) elem.innerHTML = user.displayName;
+    });
+  }
   console.log('debugging', user);
  });
  
